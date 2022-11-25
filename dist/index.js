@@ -142,7 +142,7 @@ async function main() {
     const forms = core.getInput('forms');
     const formsMap = jsonToMap(forms);
     const fileForms = core.getInput('fileForms');
-    const customHeaders = JSON.parse(core.getInput('customHeaders'));
+    const customHeaders = JSON.parse(core.getInput('customHeaders') || '{}');
     const fileFormsMap = jsonToMap(fileForms);
 
     console.log(forms);

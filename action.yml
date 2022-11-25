@@ -1,6 +1,6 @@
-name: 'Upload File Action'
+name: 'Upload File Action with Custom Headers'
 description: 'upload file'
-author: 'Jant Hsueh(薛瑄)'
+author: 'esaminu'
 branding:
   icon: arrow-right-circle
   color: gray-dark
@@ -17,6 +17,9 @@ inputs:
     required: false
   fileForms:
     description: Files to be transferred,such as 'file','image' etc. Use json format
+    required: false
+  customHeaders:
+    description: Custom headers to append to the request
     required: false
 
 outputs:
