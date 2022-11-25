@@ -17,21 +17,21 @@ function buildForm(forms, fileForms) {
     return form
 }
 
-async function getFormHeaders (form) {
+async function getFormHeaders (form, customHeaders) {
   const getLen = promisify(form.getLength).bind(form);
   const len = await getLen();
   return {
-    ...form.getHeaders(),
+    ...form.getHeaders(customHeaders),
     'Content-Length': len
   }
 }
 
-async function uploadFile(url, forms, fileForms) {
+async function uploadFile(url, forms, fileForms, customHeaders) {
     console.log(url);
     console.log(forms);
     console.log(fileForms);
     const form = buildForm(forms, fileForms);
-    const headers = await getFormHeaders(form);
+    const headers = await getFormHeaders(form, customHeaders);
     console.log(headers);
     return axios.post(url, form, {headers: headers,maxContentLength: Infinity})
 }

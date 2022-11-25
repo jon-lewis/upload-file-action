@@ -6,7 +6,7 @@ test('webrequest post', async () => {
   const formsMap = jsonToMap({"_api_key":"使用你自己的key","buildInstallType":3});
   const fileFormsMap = jsonToMap({"file":"app-debug.apk"});
   const res = await uploadFile('https://www.pgyer.com/apiv2/app/upload',
-      formsMap,fileFormsMap);
+      formsMap,fileFormsMap, {customHeader: 'exists'});
 });
 
 
